@@ -1,0 +1,20 @@
+direction: right
+
+User: {
+  shape: person
+}
+
+System: {
+  shape: package
+  label: "COLORS-Lab System"
+  
+  login: Login { shape: oval }
+  add_color: Add Color { shape: oval }
+  search_colors: Search Colors { shape: oval }
+  logout: Logout { shape: oval }
+}
+
+User -> System.login
+User -> System.add_color
+User -> System.search_colors
+User -> System.logout

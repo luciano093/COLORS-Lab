@@ -1,0 +1,126 @@
+direction: down
+
+start: Start { shape: oval }
+end: End { shape: oval }
+
+login_input: { 
+  shape: rectangle
+  label: "User Enters Login & Password" 
+}
+api_login: { 
+  shape: rectangle
+  label: "JS sends to Login.php" 
+}
+db_verify: { 
+  shape: diamond
+  label: "Are Credentials Valid?" 
+}
+login_error: { 
+  shape: rectangle
+  label: "Show 'Combination incorrect'" 
+}
+
+create_session: { 
+  shape: rectangle
+  label: "saveCookie() (Set 20 min expiration)" 
+}
+redirect_main: { 
+  shape: rectangle
+  label: "Redirect to color.html" 
+}
+
+read_cookie: { 
+  shape: diamond
+  label: "readCookie(): Valid UserId?" 
+}
+force_login: { 
+  shape: rectangle
+  label: "Redirect to index.html" 
+}
+
+choose_action: { 
+  shape: diamond
+  label: "Wait for User Action" 
+}
+
+# --- Add Color Branch ---
+add_color: { 
+  shape: rectangle
+  label: "Enter Color & Click Add" 
+}
+api_add: { 
+  shape: rectangle
+  label: "Send to AddColor.php" 
+}
+db_insert: { 
+  shape: rectangle
+  label: "Insert into Colors Table" 
+}
+show_add_msg: { 
+  shape: rectangle
+  label: "Update UI: Color Added" 
+}
+
+# --- Search Color Branch ---
+search_color: { 
+  shape: rectangle
+  label: "Enter Search Term & Click Search" 
+}
+api_search: { 
+  shape: rectangle
+  label: "Send to SearchColors.php" 
+}
+db_select: { 
+  shape: rectangle
+  label: "Query DB for Matching Colors" 
+}
+show_search_msg: { 
+  shape: rectangle
+  label: "Display Color Results" 
+}
+
+# --- Logout Branch ---
+logout: { 
+  shape: rectangle
+  label: "Click Logout" 
+}
+clear_cookie: { 
+  shape: rectangle
+  label: "doLogout(): Clear Cookie" 
+}
+
+# --- Connections ---
+start -> login_input
+login_input -> api_login
+api_login -> db_verify
+
+db_verify -> login_error: "No"
+login_error -> login_input
+
+db_verify -> create_session: "Yes"
+create_session -> redirect_main
+redirect_main -> read_cookie
+
+read_cookie -> force_login: "No"
+force_login -> login_input
+
+read_cookie -> choose_action: "Yes"
+
+# Action: Add
+choose_action -> add_color: "Action: Add Color"
+add_color -> api_add
+api_add -> db_insert
+db_insert -> show_add_msg
+show_add_msg -> choose_action
+
+# Action: Search
+choose_action -> search_color: "Action: Search"
+search_color -> api_search
+api_search -> db_select
+db_select -> show_search_msg
+show_search_msg -> choose_action
+
+# Action: Logout
+choose_action -> logout: "Action: Logout"
+logout -> clear_cookie
+clear_cookie -> end

@@ -1,0 +1,39 @@
+direction: right
+
+Frontend_Code_JS: {
+  shape: class
+  label: "public/js/code.js"
+  "+ urlBase": "String"
+  "+ extension": "String"
+  "+ userId": "int"
+  "+ firstName": "String"
+  "+ lastName": "String"
+  "+ doLogin()": "void"
+  "+ saveCookie()": "void"
+  "+ readCookie()": "void"
+  "+ doLogout()": "void"
+  "+ addColor()": "void"
+  "+ searchColor()": "void"
+}
+
+Entity_Users: {
+  shape: class
+  label: "Table: Users"
+  "+ ID": "INT [PK]"
+  "+ firstName": "VARCHAR(50)"
+  "+ lastName": "VARCHAR(50)"
+  "+ Login": "VARCHAR(50)"
+  "+ Password": "VARCHAR(50)"
+}
+
+Entity_Colors: {
+  shape: class
+  label: "Table: Colors"
+  "+ ID": "INT [PK]"
+  "+ UserId": "INT [FK]"
+  "+ Name": "VARCHAR(50)"
+}
+
+Frontend_Code_JS -> Entity_Users: "Authenticates via Login.php"
+Frontend_Code_JS -> Entity_Colors: "Modifies/Reads via APIs"
+Entity_Users -> Entity_Colors: "1..* (Has)"
