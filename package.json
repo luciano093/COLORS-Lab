@@ -1,0 +1,27 @@
+{
+  "name": "colors-lab",
+  "version": "1.0.0",
+  "description": "COLORS is a web-based application built for COP 4331 (Processes for Object-Oriented Software Development) that allows users to manage a personal collection of color names. Users can create an account, log in, add colors to their collection, and search through their saved colors. The application demonstrates full-stack web development using the LAMP stack architecture.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luciano093/COLORS-Lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/luciano093/COLORS-Lab/issues"
+  },
+  "homepage": "https://github.com/luciano093/COLORS-Lab#readme",
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  },
+  "scripts": {
+    "lint": "prettier --check ."
+  }
+}

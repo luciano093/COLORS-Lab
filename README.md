@@ -62,6 +62,7 @@ COLORS-Lab/
 3. Create the required tables:
 
    **Users Table:**
+
    ```sql
    CREATE TABLE Users (
        ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -73,6 +74,7 @@ COLORS-Lab/
    ```
 
    **Colors Table:**
+
    ```sql
    CREATE TABLE Colors (
        ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -85,6 +87,7 @@ COLORS-Lab/
 ### Application Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/luciano093/COLORS-Lab.git
    ```
@@ -97,7 +100,7 @@ COLORS-Lab/
    - Open `public/js/code.js`
    - Update the `urlBase` variable to point to your API directory:
      ```javascript
-     const urlBase = 'http://your-domain.com/api';
+     const urlBase = "http://your-domain.com/api";
      ```
 
 4. Set appropriate file permissions:
@@ -111,6 +114,7 @@ COLORS-Lab/
 ### Starting the Application
 
 1. Ensure your Apache and MySQL servers are running:
+
    ```bash
    sudo service apache2 start
    sudo service mysql start
@@ -167,6 +171,7 @@ COLORS-Lab/
 ### Security Considerations
 
 ⚠️ **Warning**: This application is designed for educational purposes and should not be used in production without significant security enhancements, including:
+
 - Implementing proper password hashing (bcrypt/Argon2)
 - Using environment variables for database credentials
 - Adding CSRF protection
