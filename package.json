@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/luciano093/COLORS-Lab#readme",
   "devDependencies": {
-    "prettier": "^3.8.1"
+    "jest": "^30.3.0",
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2"
   },
   "scripts": {
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "test": "jest"
   }
 }
